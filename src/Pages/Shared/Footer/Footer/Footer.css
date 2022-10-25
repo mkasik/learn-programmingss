@@ -1,0 +1,14 @@
+.footer{
+    height: 100px;
+    background-color: black;
+    position: relative;
+}
+.copy{
+    color: white;
+    
+    position: absolute;
+    margin: 40px auto;
+    margin-left: 50%;
+    
+    
+}
