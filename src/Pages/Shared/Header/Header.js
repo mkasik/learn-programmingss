@@ -5,8 +5,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import photo from './logo2.png'
 import './Header.css'
+import { useContext } from 'react';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import { FaUser } from "react-icons/fa";
 
 const Header = () => {
+    const {user}= useContext(AuthContext);
     return (
         <div>
                 <Navbar bg="dark" variant="dark" expand="lg">
@@ -31,6 +35,19 @@ const Header = () => {
             <Link className='link' to={'login'}>Login</Link>
             <Link className='link' to={'register'}>Register</Link>
             
+          </Nav>
+          <Nav>
+            <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
+            <Nav.Link eventKey={2} href="#memes">
+              {user.photoURL2 ? 
+            <img src={user.photoURL}
+            height='30'
+            className='photo'
+            alt='asik'></img> 
+            : <FaUser></FaUser>
+            }
+            
+            </Nav.Link>
           </Nav>
           </Navbar.Collapse>
         </Container>

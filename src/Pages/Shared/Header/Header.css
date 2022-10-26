@@ -8,3 +8,6 @@
 .link:hover{
     color: yellow;
 }
+.photo{
+    border-radius: 50px;
+}

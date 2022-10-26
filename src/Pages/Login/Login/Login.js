@@ -7,8 +7,25 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
+import { FaGoogle} from 'react-icons/fa';
+import { FaFacebook} from 'react-icons/fa';
+import { useContext } from 'react';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+
 
 const Login = () => {
+    const {providerLogin}= useContext(AuthContext);
+    const googleProvider= new GoogleAuthProvider();
+    const handleGoogleSignIn=()=>{
+       
+        providerLogin(googleProvider)
+        .then(result =>{
+            const user= result.user;
+            console.log(user);
+        })
+        .catch(error =>console.error(error))
+    }
     return (
         <div className='login'>
             <Container>
@@ -30,10 +47,18 @@ const Login = () => {
         <Form.Control className='w-50 box' type="password" placeholder="Your Password" />
       </Form.Group>
      
-      <Button variant="primary" type="submit">
+      <Button className='mb-3' variant="primary" type="submit">
        LOGIN
       </Button>
+      <div className='mb-2'>--Or Sign In With--</div>
+      <div>
+      <Button onClick={handleGoogleSignIn}  className='w-25 me-1' variant="outline-dark"><FaGoogle></FaGoogle>  Google</Button>
+      
+      <Button className='w-25' variant="outline-dark"><FaFacebook></FaFacebook> Facebook</Button>
+      </div>
       <div>New to learn programming? Please <Link to={'/register'}>Register</Link></div>
+      
+      
 
     </Form>
 
