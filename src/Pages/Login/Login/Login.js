@@ -12,9 +12,11 @@ import { FaGithub} from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { useState } from 'react';
 
 
 const Login = () => {
+  const [error, setError]=useState('');
     const {providerLogin, signIn, githubProviderLogin}= useContext(AuthContext);
     const googleProvider= new GoogleAuthProvider();
     const githubProvider= new GithubAuthProvider();
@@ -46,9 +48,13 @@ const Login = () => {
         const user= result.user;
         console.log(user);
         form.reset();
+        setError('');
         navigate('/');
       })
-      .catch(e=>console.error(e));
+      .catch(e=>{
+        console.error(e)
+        setError(e.message)
+      });
     }
     return (
         <div className='login'>
@@ -74,6 +80,11 @@ const Login = () => {
       <Button className='mb-3' variant="primary" type="submit">
        LOGIN
       </Button>
+     <div>
+     <Form.Text className="text-danger">
+          {error}
+        </Form.Text>
+     </div>
       <div className='mb-2'>--Or Sign In With--</div>
       <div>
       <Button onClick={handleGoogleSignIn}  className='w-25 me-1' variant="outline-dark"><FaGoogle></FaGoogle>  Google</Button>
