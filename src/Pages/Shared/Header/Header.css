@@ -11,3 +11,11 @@
 .photo{
     border-radius: 50px;
 }
+.btnn{
+    background-color:gray ;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    margin-left: 10px;
+
+}

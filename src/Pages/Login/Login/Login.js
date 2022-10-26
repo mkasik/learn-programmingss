@@ -6,7 +6,7 @@ import './Login.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle} from 'react-icons/fa';
 import { FaFacebook} from 'react-icons/fa';
 import { useContext } from 'react';
@@ -15,8 +15,9 @@ import { GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
-    const {providerLogin}= useContext(AuthContext);
+    const {providerLogin, signIn}= useContext(AuthContext);
     const googleProvider= new GoogleAuthProvider();
+    const navigate= useNavigate();
     const handleGoogleSignIn=()=>{
        
         providerLogin(googleProvider)
@@ -25,6 +26,20 @@ const Login = () => {
             console.log(user);
         })
         .catch(error =>console.error(error))
+    }
+    const handleSubmit= event=>{
+      event.preventDefault();
+      const form= event.target;
+      const email= form.email.value;
+      const password= form.password.value;
+      signIn(email,password)
+      .then(result=>{
+        const user= result.user;
+        console.log(user);
+        form.reset();
+        navigate('/');
+      })
+      .catch(e=>console.error(e));
     }
     return (
         <div className='login'>
@@ -35,16 +50,16 @@ const Login = () => {
         </Col>
         <Col>
         <h2 className='text'>Please Login</h2>
-        <Form className='form'>
+        <Form onSubmit={handleSubmit} className='form'>
       <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
         <Form.Label className='tt'>Email</Form.Label>
-        <Form.Control className='w-50 me-4 box' type="email" placeholder="Your Email" />
+        <Form.Control className='w-50 me-4 box' type="email" placeholder="Your Email" name='email' required />
         
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label className='ttt'>Password</Form.Label>
-        <Form.Control className='w-50 box' type="password" placeholder="Your Password" />
+        <Form.Control className='w-50 box' type="password" placeholder="Your Password" name='password' required />
       </Form.Group>
      
       <Button className='mb-3' variant="primary" type="submit">

@@ -8,9 +8,15 @@ import './Header.css'
 import { useContext } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { FaUser } from "react-icons/fa";
+import Button from 'react-bootstrap/Button';
 
 const Header = () => {
-    const {user}= useContext(AuthContext);
+    const {user, logOut}= useContext(AuthContext);
+    const handleLogOut=()=>{
+        logOut()
+        .then(()=>{})
+        .catch(error=>console.error(error))
+    }
     return (
         <div>
                 <Navbar bg="dark" variant="dark" expand="lg">
@@ -32,18 +38,28 @@ const Header = () => {
             <Link className='link' to={'/courses'}>Courses</Link>
             <Link className='link' to={'/faq'}>FAQ</Link>
             <Link className='link' to={'blog'}>Blog</Link>
-            <Link className='link' to={'login'}>Login</Link>
-            <Link className='link' to={'register'}>Register</Link>
+            
             
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
+            <Nav.Link href="#deets">
+                {user?.uid? 
+                    <>
+                    <span>{user?.displayName}</span>
+                    <button onClick={handleLogOut} className='btnn'>Log Out</button>
+                    </> : 
+                    <>
+                    <Link className='link' to={'login'}>Login</Link>
+            <Link className='link' to={'register'}>Register</Link>
+                    </>   
+            }
+                </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
-              {user.photoURL2 ? 
-            <img src={user.photoURL}
+              {user?.photoURL ? 
+            <img src={user?.photoURL}
             height='30'
             className='photo'
-            alt='asik'></img> 
+            alt='User images'></img> 
             : <FaUser></FaUser>
             }
             
