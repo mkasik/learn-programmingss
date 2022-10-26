@@ -1,0 +1,9 @@
+.photo{
+    height: 265px;
+    width: 600px;
+    border-radius: 10px;
+}
+.detail{
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
