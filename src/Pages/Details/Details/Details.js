@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -14,7 +14,7 @@ const Details = () => {
     return (
         <div className='detail'>
                
-                <h2 className='mb-4'>Welcome to {detail.name} Course</h2>
+                <h2 className='mb-4'>Welcome to {detail.name} Course  <Button variant="light">Download</Button></h2>
                 <Container>
                     <Row>
                         <Col><img className='photo' src={detail.img} alt="" /></Col>
@@ -29,7 +29,7 @@ const Details = () => {
                                 <Card.Subtitle className="mb-2 text-muted">Course Fee: {detail.fee}</Card.Subtitle>
                                 <Card.Subtitle className="mb-2 text-muted">Course Duration: {detail.duration}</Card.Subtitle>
                                 <Card.Subtitle className="mb-2 text-muted">Total Modules: {detail.modules}</Card.Subtitle>
-                                <Button variant="warning">Get premium access</Button>
+                                <Link to={'/checkout'}><Button variant="warning">Get premium access</Button></Link>
                             </Card.Body>
                             </Card>
                         </Col>
