@@ -56,7 +56,7 @@ const Header = () => {
                 </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
               {user?.photoURL ? 
-            <img src={user?.photoURL}
+            <img title={user?.displayName} src={user?.photoURL}
             height='30'
             className='photo'
             alt='User images'></img> 

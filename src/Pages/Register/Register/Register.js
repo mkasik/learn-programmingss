@@ -12,25 +12,36 @@ import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 
 const Register = () => {
-const {createUser}=useContext(AuthContext);
+const {createUser,updateUserProfile}=useContext(AuthContext);
 const navigate= useNavigate();
   const handleSubmit= event=>{
     
     event.preventDefault();
     const form= event.target;
   const name= form.name.value;
+  const photoURL= form.photoURL.value;
   const email= form.email.value;
   const password= form.password.value;
-  console.log(name, email, password); 
+  // console.log(name,photoURL, email, password); 
   createUser(email, password)
   .then(result=>{
     const user= result.user;
     console.log(user);
     form.reset();
     navigate('/login')
+    handleUpdateUserProfile(name, photoURL);
   })
   .catch(e=>console.error(e));
   
+  }
+  const handleUpdateUserProfile= (name, photoURL)=>{
+    const profile= {
+      displayName: name,
+      photoURL: photoURL
+    }
+    return updateUserProfile(profile)
+    .then(()=>{})
+    .catch(error=>console.error(error));
   }
   
   
@@ -47,6 +58,11 @@ const navigate= useNavigate();
   <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
     <Form.Label className='tt'>Name</Form.Label>
     <Form.Control className='w-50 me-4 box' type="text" placeholder="Your Name" name='name' required />
+    
+  </Form.Group>
+  <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
+    <Form.Label className='tt'>PhotoURL</Form.Label>
+    <Form.Control className='w-50 me-4 box' type="text" placeholder="Your PhotoURL" name='photoURL' required />
     
   </Form.Group>
   <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">

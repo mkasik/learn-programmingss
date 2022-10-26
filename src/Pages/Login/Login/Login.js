@@ -8,15 +8,16 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle} from 'react-icons/fa';
-import { FaFacebook} from 'react-icons/fa';
+import { FaGithub} from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
-    const {providerLogin, signIn}= useContext(AuthContext);
+    const {providerLogin, signIn, githubProviderLogin}= useContext(AuthContext);
     const googleProvider= new GoogleAuthProvider();
+    const githubProvider= new GithubAuthProvider();
     const navigate= useNavigate();
     const handleGoogleSignIn=()=>{
        
@@ -26,6 +27,14 @@ const Login = () => {
             console.log(user);
         })
         .catch(error =>console.error(error))
+    }
+    const handleGithubSignIn=()=>{
+      githubProviderLogin(githubProvider)
+      .then(result =>{
+        const user= result.user;
+        console.log(user);
+    })
+    .catch(error =>console.error(error))
     }
     const handleSubmit= event=>{
       event.preventDefault();
@@ -69,7 +78,7 @@ const Login = () => {
       <div>
       <Button onClick={handleGoogleSignIn}  className='w-25 me-1' variant="outline-dark"><FaGoogle></FaGoogle>  Google</Button>
       
-      <Button className='w-25' variant="outline-dark"><FaFacebook></FaFacebook> Facebook</Button>
+      <Button onClick={handleGithubSignIn} className='w-25' variant="outline-dark"><FaGithub></FaGithub> Github</Button>
       </div>
       <div>New to learn programming? Please <Link to={'/register'}>Register</Link></div>
       
