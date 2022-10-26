@@ -12,3 +12,12 @@
 a{
     text-decoration: none;
 }
+@media only screen and (max-width: 600px) {
+    .register{
+        height: 870px;
+    }
+    .reg-image{
+        /* margin-left: -120px; */
+        width: 400px;
+    }
+  }

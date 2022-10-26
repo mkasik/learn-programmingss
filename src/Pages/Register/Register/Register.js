@@ -50,7 +50,7 @@ const navigate= useNavigate();
         <Container>
   <Row>
     <Col>
-    <img src={img} alt="" />
+    <img className='reg-image' src={img} alt="" />
     </Col>
     <Col>
     <h2 className='text'>Please Register</h2>

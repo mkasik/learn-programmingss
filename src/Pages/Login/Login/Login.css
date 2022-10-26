@@ -23,4 +23,11 @@
 .text{
     margin-top: 30px;
 }
-
+@media only screen and (max-width: 600px) {
+    .login{
+        height: 750px;
+    }
+    .login-image{
+        width: 400px;
+    }
+  }

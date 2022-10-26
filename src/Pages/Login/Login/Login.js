@@ -63,7 +63,7 @@ const Login = () => {
             <Container>
       <Row>
         <Col>
-        <img src={img} alt="" />
+        <img className='login-image' src={img} alt="" />
         </Col>
         <Col>
         <h2 className='text'>Please Login</h2>
