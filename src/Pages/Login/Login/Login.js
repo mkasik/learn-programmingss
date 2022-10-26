@@ -6,7 +6,7 @@ import './Login.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle} from 'react-icons/fa';
 import { FaGithub} from 'react-icons/fa';
 import { useContext } from 'react';
@@ -21,6 +21,8 @@ const Login = () => {
     const googleProvider= new GoogleAuthProvider();
     const githubProvider= new GithubAuthProvider();
     const navigate= useNavigate();
+    const location= useLocation();
+    const from= location.state?.from?.pathname ||'/';
     const handleGoogleSignIn=()=>{
        
         providerLogin(googleProvider)
@@ -49,7 +51,7 @@ const Login = () => {
         console.log(user);
         form.reset();
         setError('');
-        navigate('/');
+        navigate(from, {replace:true});
       })
       .catch(e=>{
         console.error(e)

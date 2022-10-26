@@ -29,7 +29,7 @@ const Details = () => {
                                 <Card.Subtitle className="mb-2 text-muted">Course Fee: {detail.fee}</Card.Subtitle>
                                 <Card.Subtitle className="mb-2 text-muted">Course Duration: {detail.duration}</Card.Subtitle>
                                 <Card.Subtitle className="mb-2 text-muted">Total Modules: {detail.modules}</Card.Subtitle>
-                                <Link to={'/checkout'}><Button variant="warning">Get premium access</Button></Link>
+                                <Link to={`/checkout/${detail.id}`}><Button variant="warning">Get premium access</Button></Link>
                             </Card.Body>
                             </Card>
                         </Col>

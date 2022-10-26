@@ -13,29 +13,37 @@ const auth= getAuth(app);
 
 const AuthProvider = ({children}) => {
     const [user, setUser]=useState(null);
+    const [loading, setLoading]=useState(true);
     const providerLogin= (provider)=>{
+        setLoading(true);
         return signInWithPopup(auth, provider);
+        
     }
     const githubProviderLogin= (provider)=>{
+        setLoading(true);
         return signInWithPopup(auth, provider);
     }
     const createUser= (email, password)=>{
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const signIn= (email,password)=>{
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
     const updateUserProfile= (profile)=>{
         return updateProfile(auth.currentUser, profile);
     }
     const logOut= ()=>{
+        setLoading(true);
         return signOut(auth);
     }
      
-     const authInfo= {user, providerLogin, logOut, createUser, signIn, githubProviderLogin, updateUserProfile}
+     const authInfo= {user, providerLogin, logOut, createUser, signIn, githubProviderLogin, updateUserProfile, loading}
      useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
-            setUser(currentUser)
+            setUser(currentUser);
+            setLoading(false);
         });
         return ()=>{
             unsubscribe();

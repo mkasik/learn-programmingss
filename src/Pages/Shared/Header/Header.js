@@ -9,6 +9,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { FaUser } from "react-icons/fa";
 import Button from 'react-bootstrap/Button';
+import { useState } from 'react';
 
 const Header = () => {
     const {user, logOut}= useContext(AuthContext);
@@ -17,6 +18,10 @@ const Header = () => {
         .then(()=>{})
         .catch(error=>console.error(error))
     }
+    let [changeText, setChangeText] = useState()
+    const handleChange = () => {
+        return setChangeText(!changeText);
+      };
     return (
         <div>
                 <Navbar bg="dark" variant="dark" expand="lg">
@@ -42,7 +47,7 @@ const Header = () => {
             
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">
+            <Nav.Link >
                 {user?.uid? 
                     <>
                     <span>{user?.displayName}</span>
@@ -54,16 +59,18 @@ const Header = () => {
                     </>   
             }
                 </Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            <Nav.Link eventKey={2} >
               {user?.photoURL ? 
-            <img title={user?.displayName} src={user?.photoURL}
+            <img  title={user?.displayName} src={user?.photoURL}
             height='30'
-            className='photo'
+            className='roundedCircle'
             alt='User images'></img> 
             : <FaUser></FaUser>
             }
             
             </Nav.Link>
+
+            {changeText ? <Button className='w-25' onClick={() => handleChange()} variant="light">Light</Button> :  <Button className='w-25' onClick={() => handleChange()} variant="dark">Dark</Button>}
           </Nav>
           </Navbar.Collapse>
         </Container>

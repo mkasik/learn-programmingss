@@ -8,8 +8,8 @@
 .link:hover{
     color: yellow;
 }
-.photo{
-    border-radius: 50px;
+.roundedCircle{
+    border-radius: 20px;
 }
 .btnn{
     background-color:gray ;
