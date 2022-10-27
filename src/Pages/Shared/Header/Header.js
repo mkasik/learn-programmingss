@@ -67,10 +67,10 @@ const Header = () => {
             alt='User images'></img> 
             : <FaUser></FaUser>
             }
-            
+            {changeText ? <Button className='w-25' onClick={() => handleChange()} variant="light">Light</Button> :  <Button className='w-25' onClick={() => handleChange()} variant="dark">Dark</Button>}
             </Nav.Link>
 
-            {changeText ? <Button className='w-25' onClick={() => handleChange()} variant="light">Light</Button> :  <Button className='w-25' onClick={() => handleChange()} variant="dark">Dark</Button>}
+            
           </Nav>
           </Navbar.Collapse>
         </Container>

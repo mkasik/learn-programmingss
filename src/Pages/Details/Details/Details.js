@@ -15,15 +15,15 @@ const Details = () => {
     return (
         <div className='detail'>
                
-                <h2 className='mb-4'>Welcome to {detail.name} Course <Pdf targetRef={ref} filename="code-example.pdf">
+                <h2 className='mb-4'>Welcome to {detail.name} Course <Pdf targetRef={ref} filename="Course Details.pdf">
         {({ toPdf }) => <Button onClick={toPdf} variant="light">Download</Button>}
       </Pdf>  </h2>
                 
-                <Container>
+                <Container >
                     <Row>
                         <Col><img className='photo' src={detail.img} alt="" /></Col>
                         <Col>
-                        <Card ref={ref} style={{ }}>
+                        <Card  ref={ref} style={{ }}>
                             <Card.Body>
                                 <Card.Title>{detail.name}</Card.Title>
                                 

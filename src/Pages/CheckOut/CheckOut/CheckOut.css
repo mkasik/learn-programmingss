@@ -1,0 +1,16 @@
+.checkout{
+    border: 2px solid  rgb(210, 194, 194);
+    margin-top: 70px;
+    width: 20%;
+    margin: 70px auto;
+}
+.check-image{
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+}
+@media only screen and (max-width: 600px) {
+    .checkout{
+        width: 100%;
+    }
+  }
