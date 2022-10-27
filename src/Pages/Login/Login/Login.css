@@ -7,10 +7,10 @@
 .box{
     margin-left: 150px;
 }
-.tt{
+.email-text{
     margin-left: -235px;
 }
-.ttt{
+.password-text{
     margin-left: -210px;
 }
 .form{
@@ -22,6 +22,9 @@
 }
 .text{
     margin-top: 30px;
+}
+.link1 a{
+    text-decoration: none;
 }
 @media only screen and (max-width: 600px) {
     .login{

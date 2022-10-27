@@ -67,11 +67,15 @@ const Header = () => {
             alt='User images'></img> 
             : <FaUser></FaUser>
             }
-            {changeText ? <Button className='w-25' onClick={() => handleChange()} variant="light">Light</Button> :  <Button className='w-25' onClick={() => handleChange()} variant="dark">Dark</Button>}
+            
             </Nav.Link>
-
+            <Nav.Link >
+            {changeText ? <Button className='' onClick={() => handleChange()} variant="light">Light</Button> :  <Button className='' onClick={() => handleChange()} variant="dark">Dark</Button>}
+                </Nav.Link>
+            
             
           </Nav>
+
           </Navbar.Collapse>
         </Container>
       </Navbar>

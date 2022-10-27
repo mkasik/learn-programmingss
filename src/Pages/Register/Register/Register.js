@@ -56,30 +56,30 @@ const navigate= useNavigate();
     <h2 className='text'>Please Register</h2>
     <Form onSubmit={handleSubmit}  className='form1'>
   <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
-    <Form.Label className='tt'>Name</Form.Label>
-    <Form.Control className='w-50 me-4 box' type="text" placeholder="Your Name" name='name' required />
+    <Form.Label className='email-text'>Name</Form.Label>
+    <Form.Control className='w-50 me-4 box' type="text" placeholder="Your Full Name" name='name' required />
     
   </Form.Group>
   <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
-    <Form.Label className='tt'>PhotoURL</Form.Label>
+    <Form.Label className='photo-text'>PhotoURL</Form.Label>
     <Form.Control className='w-50 me-4 box' type="text" placeholder="Your PhotoURL" name='photoURL' required />
     
   </Form.Group>
   <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
-    <Form.Label className='tt'>Email</Form.Label>
+    <Form.Label className='email-text'>Email</Form.Label>
     <Form.Control className='w-50 me-4 box' type="email" placeholder="Your Email" name='email' required />
     
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
-    <Form.Label className='ttt'>Password</Form.Label>
+    <Form.Label className='password-text'>Password</Form.Label>
     <Form.Control className='w-50 box' type="password" placeholder="Your Password" name='password' required />
   </Form.Group>
  
   <Button variant="primary" type="submit">
    Sign Up
   </Button>
-  <div>Already have an account? Please <Link to={'/login'}>Login</Link></div>
+  <div className='link1 mt-2'>Already have an account? Please <Link to={'/login'}>Login</Link></div>
 
 </Form>
 

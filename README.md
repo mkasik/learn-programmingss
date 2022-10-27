@@ -2,7 +2,7 @@
 
 # Website info:
 Website name: Learn Programming
-Website Link: https://learn-programming-8cede.web.app/
+Website Link: https://learn-programming-8cede.web.app
 
 # Home Page:
 In homepage, you will see a navbar includes Courses, FAQ and Blog.
@@ -23,5 +23,17 @@ If you register in our website, you can login here with your email and password.
 # Register Page:
 In this page, you can sign up in our website with your real info. 
 
+
+# List of Technologies that i used in this website:-
+   1. React
+   2. Bootstrap
+   3. React Bootstrap
+   4. Css
+   5. JavaScript
+   6. Node.js
+   7. Node Express
+   8. Firebase
+   9. Vercel
+   10. Nodemon
 
 # Thank you so much for visiting our website. 

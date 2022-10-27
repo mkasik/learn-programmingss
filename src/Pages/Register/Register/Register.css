@@ -9,6 +9,9 @@
 
     background-color: rgb(246, 246, 233);
 }
+.photo-text{
+    margin-left: -210px;
+}
 a{
     text-decoration: none;
 }

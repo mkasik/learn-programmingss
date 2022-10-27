@@ -69,13 +69,13 @@ const Login = () => {
         <h2 className='text'>Please Login</h2>
         <Form onSubmit={handleSubmit} className='form'>
       <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
-        <Form.Label className='tt'>Email</Form.Label>
+        <Form.Label className='email-text'>Email</Form.Label>
         <Form.Control className='w-50 me-4 box' type="email" placeholder="Your Email" name='email' required />
         
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label className='ttt'>Password</Form.Label>
+        <Form.Label className='password-text'>Password</Form.Label>
         <Form.Control className='w-50 box' type="password" placeholder="Your Password" name='password' required />
       </Form.Group>
      
@@ -93,7 +93,7 @@ const Login = () => {
       
       <Button onClick={handleGithubSignIn} className='w-25' variant="outline-dark"><FaGithub></FaGithub> Github</Button>
       </div>
-      <div>New to learn programming? Please <Link to={'/register'}>Register</Link></div>
+      <div className='link1 mt-2'>New to learn programming? Please <Link to={'/register'}>Register</Link></div>
       
       
 

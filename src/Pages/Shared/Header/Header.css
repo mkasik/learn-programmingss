@@ -10,6 +10,8 @@
 }
 .roundedCircle{
     border-radius: 20px;
+    height: 30px;
+    width: 30px;
 }
 .btnn{
     background-color:gray ;
