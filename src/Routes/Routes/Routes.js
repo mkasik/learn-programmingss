@@ -56,7 +56,7 @@ export const routes= createBrowserRouter([
             {
                 path:'/checkout/:id',
                 element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                loader: ({params})=>fetch(`https://server-mkasik.vercel.app/${params.id}`)
+                loader: ({params})=>fetch(`https://server-mkasik.vercel.app/details/${params.id}`)
             } 
         ]
     },
