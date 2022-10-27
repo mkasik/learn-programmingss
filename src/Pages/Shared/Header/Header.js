@@ -26,7 +26,7 @@ const Header = () => {
         <div>
                 <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="/home">
+          <Navbar.Brand href="/">
           <img
               src={photo}
               width="220"
