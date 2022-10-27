@@ -6,20 +6,24 @@ import Col from 'react-bootstrap/Col';
 import './Details.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Pdf from "react-to-pdf";
 
-
+const ref = React.createRef();
 const Details = () => {
     const detail= useLoaderData();
     console.log(detail);
     return (
         <div className='detail'>
                
-                <h2 className='mb-4'>Welcome to {detail.name} Course  <Button variant="light">Download</Button></h2>
+                <h2 className='mb-4'>Welcome to {detail.name} Course <Pdf targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => <Button onClick={toPdf} variant="light">Download</Button>}
+      </Pdf>  </h2>
+                
                 <Container>
                     <Row>
                         <Col><img className='photo' src={detail.img} alt="" /></Col>
                         <Col>
-                        <Card style={{ }}>
+                        <Card ref={ref} style={{ }}>
                             <Card.Body>
                                 <Card.Title>{detail.name}</Card.Title>
                                 
@@ -36,6 +40,7 @@ const Details = () => {
                     </Row>
                     
                     </Container>
+                   
         </div>
     );
 };
